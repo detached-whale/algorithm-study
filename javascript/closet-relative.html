@@ -1,0 +1,61 @@
+<body>
+
+testdome javascript interview question no.11 (https://www.testdome.com/d/javascript-interview-questions/2)
+<br><br>
+The following HTML represents a family tree:
+<xmp>
+<James>
+    <Dave></Dave>
+    <Mike></Mike>
+    <Sarah></Sarah>
+</James>
+</xmp>
+
+Implement the closestRelative function so that when a parent HTML element is passed, the function returns the parent's closest relative whose name matches the relativeName, and obeys the following rules:
+<br><br>
+ - The parent parameter is the HTML element of which the closest relative will be a descendant.<br>
+ - Each member of the family, including children, may also be a parent to one or more children.<br>
+ - Children are more closely related to the parent than grandchildren.<br>
+ - If several children in the same generation have the same name, then the first child in the tree is considered the closer relative.
+ - If no matching relative is found the function should return null.<br>
+<br>
+For example, the below code should print 'MIKE' for the given family tree:
+<xmp>
+let parent = document.getElementsByTagName('James')[0];
+let relative = closestRelative(parent, 'Mike');
+console.log(relative && relative.tagName); // prints MIKE
+</xmp>
+
+<James>
+    <Dave></Dave>
+    <Mike></Mike>
+    <Sarah></Sarah>
+</James>
+
+</body>
+
+<script>
+function closestRelative(parent, relativeName) {
+  var children = parent.children;
+
+  for (let child of children) {
+    if(child.tagName === relativeName.toUpperCase()) {
+      return child
+    }
+  }
+
+  for (let child of children) {
+    let temp = closestRelative(child, relativeName);
+    if(temp != null) {
+      return temp;  
+    }
+  }
+
+  return null;
+}
+
+let parent = document.getElementsByTagName('James')[0];
+let relative = closestRelative(parent, 'Mike');
+
+console.log(relative && relative.tagName);
+</script>

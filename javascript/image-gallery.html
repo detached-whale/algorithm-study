@@ -1,0 +1,51 @@
+<body>
+testdome javascript interview question no.5 (https://www.testdome.com/d/javascript-interview-questions/2)
+<br><br>
+An image gallery is a set of images with corresponding remove buttons. This is the HTML code for a gallery with two images:
+
+<xmp>
+<div class="image">
+    <img src="https://goo.gl/kjzfbE" alt="First">
+    <button class="remove">X</button>
+</div>
+<div class="image">
+    <img src="https://goo.gl/d2JncW" alt="Second">
+    <button class="remove">X</button>
+</div>
+</xmp>
+
+
+Implement the setup function that registers a click event handler and implements the following logic: When the button of class remove is clicked, its parent <div> element should be removed from the gallery.
+<br><br>
+For example, after the first image has been removed from the gallery above, it's HTML code should look like this:
+
+<xmp>
+<div class="image">
+    <img src="https://goo.gl/d2JncW" alt="Second">
+    <button class="remove">X</button>
+</div>
+</xmp>
+
+
+<div class="image">
+    <img src="https://goo.gl/kjzfbE" alt="First">
+    <button class="remove">X</button>
+</div>
+<div class="image">
+    <img src="https://goo.gl/d2JncW" alt="Second">
+    <button class="remove">X</button>
+</div>
+
+</body>
+
+<script>
+function setup() {
+  this.parentElement.remove();
+}
+
+var elements = document.getElementsByClassName('remove');
+var numElements = elements.length;
+
+for (var i = 0; i < numElements; i++)
+  elements[i].addEventListener('click', setup, false);
+</script>

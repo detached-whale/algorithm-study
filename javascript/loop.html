@@ -1,0 +1,52 @@
+<body>
+
+testdome javascript interview question no.10 (https://www.testdome.com/d/javascript-interview-questions/2)
+<br><br>
+Function appendChildren should add a new child div to each existing div. New divs should be decorated by calling decorateDiv.
+<br><br>
+For example, after appendChildren is executed, the following divs:
+
+<xmp>
+<div id="a">
+    <div id="b">
+    </div>
+</div>
+</xmp>
+
+should take the following form (assuming decorateDiv does nothing):
+<xmp>
+<div id="a">
+    <div id="b">
+        <div></div>
+    </div>
+    <div></div>
+</div>
+</xmp>
+
+<div id="a" class="test">
+    <div id="b">
+    </div>
+</div>
+
+</body>
+
+<script>
+function appendChildren(decorateDivFunction) {
+  var allDivs = document.getElementsByTagName('div');
+  var ary = [];
+
+  for (var i = 0; i < allDivs.length; i++)
+    ary.push(allDivs[i])
+
+  for (var i = 0; i < ary.length; i++) {
+    var newDiv = document.createElement('div');
+    decorateDivFunction(newDiv);
+    ary[i].appendChild(newDiv);
+  }
+}
+
+appendChildren(function(div) {});
+
+console.log(document.getElementsByClassName('test')[0]);
+
+</script>

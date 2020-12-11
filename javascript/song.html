@@ -1,0 +1,51 @@
+<body>
+
+testdome javascript interview question no.7 (https://www.testdome.com/d/javascript-interview-questions/2)
+<br><br>
+A playlist is considered a repeating playlist if any of the songs contain a reference to a previous song in the playlist. Otherwise, the playlist will end with the last song which points to undefined.
+<br><br>
+Implement the method isRepeatingPlaylist that, efficiently with respect to time used, returns true if a playlist is repeating or false if it is not.
+<br><br>
+For example, the following code prints "true" as both songs point to each other.
+
+
+
+</body>
+
+<script>
+class Song {
+  name;
+  nextSong;
+
+  constructor(name) {
+    this.name = name;
+  }
+  
+  /**
+   * @return {boolean} true if the playlist is repeating, false if not.
+   */
+  isRepeatingPlaylist() {
+  	const played = new Set();
+  	played.add(this.name);
+
+  	var next = this.nextSong;
+  	while (next != undefined) {
+  		if (played.has(next.name)) {
+  			return true
+  		}
+		played.add(next.name);
+		next = next.nextSong;
+  	}
+  	return false
+  }
+}
+
+let first = new Song('Hello');
+let second = new Song('Eye of the tiger');
+
+first.nextSong = second;
+second.nextSong = first;
+
+console.log(first.isRepeatingPlaylist());
+
+</script>

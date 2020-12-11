@@ -1,0 +1,31 @@
+<body>
+
+testdome javascript interview question no.6 (https://www.testdome.com/d/javascript-interview-questions/2)
+<br><br>
+Your company assigns each customer a membership ID, and you are implementing a check digit for those IDs.
+<br><br>
+The check digit should be calculated by adding up all digits in each membership ID. If the result of the sum is a number with more than a single digit, another iteration is required, and the digits of the result also should be added together. This process should repeat until a single-digit number is calculated.
+<br><br>
+For example, for the membership ID "55555" the sum of all digits is 25. Because this is not a single-digit number, 2 and 5 would be added, and the result, 7, would be the check digit.
+
+</body>
+
+<script>
+function createCheckDigit(membershipId) {
+  var ary = membershipId.split('');
+  var sum = 0;
+  for (const element of ary) {
+    sum += parseInt(element);
+  }
+
+  if(sum >= 10) {
+	return 0 + createCheckDigit(sum.toString());
+  }
+
+  else {
+    return sum;
+  }
+}
+
+console.log(createCheckDigit('55555'));
+</script>

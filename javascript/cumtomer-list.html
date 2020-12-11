@@ -1,0 +1,49 @@
+<body>
+
+testdome javascript interview question no.12 (https://www.testdome.com/d/javascript-interview-questions/2)
+<br><br>
+
+
+</body>
+
+<div>
+    <ul id="customers">
+    </ul>
+</div>
+
+<script>
+
+function showCustomers(customers, targetList) {
+    
+  for (let customer of customers) {
+    var li = document.createElement('li');
+    var p = document.createElement('p');
+    var name = document.createTextNode(customer['name']);
+    
+    p.appendChild(name);
+    li.appendChild(p);
+    targetList.appendChild(li);
+
+    var c = (function (email) {
+      var email = document.createTextNode(email);
+      var p = document.createElement('p');
+      p.appendChild(email);
+
+      function addEmail() {
+        this.insertAdjacentElement('afterend', p)
+        return false;
+      }
+
+      return addEmail;
+    })(customer['email']);
+
+    p.onclick = c;
+  }
+}
+
+let customers = [{name: 'John', email: 'john@example.com'},
+                 {name: 'Mary', email: 'mary@example.com'}];
+
+showCustomers(customers, document.getElementById('customers'));
+
+</script>

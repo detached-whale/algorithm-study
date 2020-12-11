@@ -1,0 +1,20 @@
+<body>
+testdome javascript interview question no.4 (https://www.testdome.com/d/javascript-interview-questions/2)
+<br><br>
+Write a function that converts user entered date formatted as M/D/YYYY to a format required by an API (YYYYMMDD). The parameter "userDate" and the return value are strings.
+<br><br>
+For example, it should convert user entered date "12/31/2014" to "20141231" suitable for the API.
+</body>
+
+<script>
+function formatDate(userDate) {
+  regexp = /(\d+)\/(\d+)\/(\d\d\d\d)/g;
+  r = [...userDate.matchAll(regexp)][0];
+  return r[3] + ('0' + r[1]).slice(-2) + ('0' + r[2]).slice(-2);
+    
+}
+
+console.log(formatDate('12/31/2014'));
+
+</script>
+
