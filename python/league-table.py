@@ -1,4 +1,6 @@
 '''
+https://www.testdome.com/questions/python/league-table/11195
+
 The LeagueTable class tracks the score of each player in a league. After each game, the player records their score with the record_result function. 
 
 The player's rank in the league is calculated using the following logic:
@@ -16,6 +18,7 @@ table.record_result('Mike', 3)
 table.record_result('Arnold', 5)
 table.record_result('Chris', 5)
 print(table.player_rank(1))
+
 All players have the same score. However, Arnold and Chris have played fewer games than Mike, and as Chris is before Arnold in the list of players, he is ranked first. Therefore, the code above should display "Chris".
 '''
 
